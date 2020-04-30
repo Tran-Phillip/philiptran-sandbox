@@ -7,5 +7,6 @@ npm
 Clone the repo then type 
 ```
 cd philiptran-sandbox/app_controller
+npm run install
 npm run start 
 ```
