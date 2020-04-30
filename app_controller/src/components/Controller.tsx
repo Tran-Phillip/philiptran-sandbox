@@ -11,7 +11,8 @@ type ControllerProps = {
     stageWidth:number, 
     stageHeight:number,
     writeBLE:Function,
-    setCharacteristic: Function
+    setCharacteristic: Function,
+    setDir: Function
 }
 
 type ControllerState = {
@@ -52,12 +53,18 @@ class Controller extends React.Component<ControllerProps, ControllerState>{
         
     }
 
+    checkOnDir(){
+        console.log("checking: " + this.state.dir)
+        this.props.setDir(this.state.dir);
+    }
+
     updateMoveButtonPosition(newY:number, newDir: string){
 
         if((this.state.isMovingVert && newDir !== this.state.dir)){
             this.sendDirectionCommand(newDir);
-        }
+            this.props.setDir(newDir);
 
+        }
         this.setState({
             moveButtonY: newY,
             dir: newDir
@@ -68,7 +75,7 @@ class Controller extends React.Component<ControllerProps, ControllerState>{
     sendDirectionCommand(newDir:string){
         console.log("writing new direction: " + newDir)
         let enc:TextEncoder = new TextEncoder();
-        this.props.writeBLE(enc.encode(newDir));
+        // this.props.writeBLE(enc.encode(newDir));
     }
 
     setHorzMovingStatus(newStatus:boolean){
@@ -95,6 +102,7 @@ class Controller extends React.Component<ControllerProps, ControllerState>{
                 isMoving = {this.state.isMovingHorz}
                 updatePosition = {this.updateRotateButtonPosition.bind(this)}
                 updateMovementStatus = {this.setHorzMovingStatus.bind(this)} 
+                checkOnDir = {this.checkOnDir.bind(this)}
             />
             <MiddleButtons x={350} y={180}/>
             <BluetoothConnector x={385} y={210} setCharacteristic={this.props.setCharacteristic}/>
@@ -106,6 +114,7 @@ class Controller extends React.Component<ControllerProps, ControllerState>{
                 setStatus={this.setVertMovingStatus.bind(this) }
                 updatePosition={this.updateMoveButtonPosition.bind(this) }
                 updatedY = {this.state.moveButtonY}
+                checkOnDir = {this.checkOnDir.bind(this)}
             />
             </>
         )

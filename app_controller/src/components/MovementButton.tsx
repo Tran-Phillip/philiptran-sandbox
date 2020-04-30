@@ -10,7 +10,8 @@ type MovementButtonProps = {
     isMoving: boolean,
     setStatus: Function,
     updatePosition: Function,
-    updatedY: number | undefined
+    updatedY: number | undefined,
+    checkOnDir: Function
 }
 
 class MovementButton extends React.Component<MovementButtonProps>{
@@ -25,12 +26,15 @@ class MovementButton extends React.Component<MovementButtonProps>{
         height: 309
     }
 
+    private interval:any;
+
     startMovement(){
+        this.interval = setInterval( this.props.checkOnDir, 10);
         this.props.setStatus(true);
     }
 
     moveButton(event: any){
-        let newY:number = event.data.global.y;
+        let newY:number = event.data.global.y - 30;
         let yDifference:number = (this.movementButtonOuterRingProp.height / 2) - (this.movementButtonProps.height/2);
 
         if(newY + this.movementButtonProps.height  > (this.props.y - yDifference) + this.movementButtonOuterRingProp.height ){
@@ -41,11 +45,19 @@ class MovementButton extends React.Component<MovementButtonProps>{
         }
 
         if(this.props.isMoving){
-            this.props.updatePosition( newY, "UP");
+
+            if(newY + 10<  (this.movementButtonOuterRingProp.height/2)  ){
+                this.props.updatePosition( newY, "UP");
+            }
+            else if(newY - 100 >  (this.movementButtonOuterRingProp.height/2)  )
+            {
+                this.props.updatePosition( newY, "DOWN");
+            }
         }
     }
 
     stopMovement(){
+        clearInterval(this.interval);
         this.props.updatePosition( this.props.y, "STOP");
         this.props.setStatus(false);
     }
