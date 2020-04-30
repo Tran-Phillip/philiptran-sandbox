@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3b6ac00f.chunk.css",
+    "main.js": "/static/js/main.0beac9d7.chunk.js",
+    "main.js.map": "/static/js/main.0beac9d7.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.4b1cd430.js",
+    "runtime-main.js.map": "/static/js/runtime-main.4b1cd430.js.map",
+    "static/js/2.9b5e2b4b.chunk.js": "/static/js/2.9b5e2b4b.chunk.js",
+    "static/js/2.9b5e2b4b.chunk.js.map": "/static/js/2.9b5e2b4b.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.cf315aa7057daf98e3bed5dd6a3053ad.js": "/precache-manifest.cf315aa7057daf98e3bed5dd6a3053ad.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.3b6ac00f.chunk.css.map": "/static/css/main.3b6ac00f.chunk.css.map",
+    "static/js/2.9b5e2b4b.chunk.js.LICENSE.txt": "/static/js/2.9b5e2b4b.chunk.js.LICENSE.txt",
+    "static/media/ConnectButton.png": "/static/media/ConnectButton.effd3179.png",
+    "static/media/InnerCircle.png": "/static/media/InnerCircle.99a95dd4.png",
+    "static/media/MiddleButtons.png": "/static/media/MiddleButtons.d9251c48.png",
+    "static/media/MovementButton.png": "/static/media/MovementButton.2fc3c0ee.png",
+    "static/media/MovementButtonOuterRing.png": "/static/media/MovementButtonOuterRing.5045274a.png",
+    "static/media/OuterRing.png": "/static/media/OuterRing.4c90771b.png",
+    "static/media/RotateButton.png": "/static/media/RotateButton.ce3e3fd6.png",
+    "static/media/UploadButton.png": "/static/media/UploadButton.0ba72823.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4b1cd430.js",
+    "static/js/2.9b5e2b4b.chunk.js",
+    "static/css/main.3b6ac00f.chunk.css",
+    "static/js/main.0beac9d7.chunk.js"
+  ]
+}
